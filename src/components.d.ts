@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
+import { Post } from "./components/post-component/post-component";
 export namespace Components {
     interface AppHome {
     }
@@ -13,6 +14,9 @@ export namespace Components {
         "match": MatchResults;
     }
     interface AppRoot {
+    }
+    interface PostComponent {
+        "post": Post;
     }
 }
 declare global {
@@ -34,10 +38,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLPostComponentElement extends Components.PostComponent, HTMLStencilElement {
+    }
+    var HTMLPostComponentElement: {
+        prototype: HTMLPostComponentElement;
+        new (): HTMLPostComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "post-component": HTMLPostComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -48,10 +59,14 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface PostComponent {
+        "post"?: Post;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "post-component": PostComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -61,6 +76,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "post-component": LocalJSX.PostComponent & JSXBase.HTMLAttributes<HTMLPostComponentElement>;
         }
     }
 }

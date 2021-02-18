@@ -1,5 +1,25 @@
 import { Component, h } from '@stencil/core';
 
+const posts = [
+  {
+    title: 'About me',
+    content: 'A Passionate Software Engineer',
+  },
+  {
+    title: 'Techs explored',
+    content: 'Ember js',
+  },
+  {
+    title: 'Ember js',
+    content:
+      "I looked into various frontend frameworks/libraries but haven't found anything similar to Ember Data",
+  },
+  {
+    title: 'Ember Data',
+    content:
+      'Ember Data provides an abstraction for <b>data source</b> in your app. Most apps consumes some form of REST APIs (which is a type of data source). Using ember data its very simple to use REST API',
+  },
+];
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css',
@@ -9,10 +29,9 @@ export class AppHome {
   render() {
     return (
       <div class="app-home">
-        <p>
-          Welcome to the Stencil App Starter. You can use this starter to build entire apps all with web components using Stencil! Check out our docs on{' '}
-          <a href="https://stenciljs.com">stenciljs.com</a> to get started.
-        </p>
+        {posts.map(post => (
+          <post-component post={post}></post-component>
+        ))}
 
         <stencil-route-link url="/profile/stencil">
           <button>Profile page</button>

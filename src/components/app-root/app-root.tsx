@@ -9,9 +9,9 @@ export class AppRoot {
   render() {
     return (
       <div>
-        <header>
+        {/* <header>
           <h1>Stencil App Starter</h1>
-        </header>
+        </header> */}
 
         <main>
           <stencil-router>

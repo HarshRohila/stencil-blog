@@ -1,8 +1,23 @@
 .app-home {
-  padding: 10px;
+  max-width: 800px;
+  height: 100%;
+  flex: 1;
+  background-color: #E4F0D0;
 }
 
-button {
+.content {
+  padding: 0 20px;
+  overflow-y: auto;
+  background-color: #E4F0D0;
+}
+
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+/* button {
   background: #5851ff;
   color: white;
   margin: 8px;
@@ -17,9 +32,9 @@ button {
   letter-spacing: 0.04em;
   transition: all 0.15s ease;
   cursor: pointer;
-}
+} */
 
-button:hover {
+/* button:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
   transform: translateY(1px);
-}
+} */
